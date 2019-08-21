@@ -3,12 +3,18 @@
   <div class="jumbotron mt-3">
     <h1 class="text-center">{{ locationName }}</h1>
     <div class="row">
-      <div class="col-md-6">
-        <p>{{weatherInfo | json}}</p>
+      <div class="col-md-4 jumbotron bg-dark text-light text-center">
+        <!-- <p>{{weatherInfo | json}}</p> -->
+        <p>{{weatherInfo.weather[0].description | uppercase}}</p>
+        <h1>{{ weatherInfo.main.temp }} &#8457;</h1>
+        <small>Highs: {{ weatherInfo.main.temp_max }} &#8457; |</small>
+        <small> Lows: {{ weatherInfo.main.temp_min }} &#8457;</small>
+        <p>Humidity: {{ weatherInfo.main.humidity }}%</p>
+        <p>Wind Speed: {{ weatherInfo.wind.speed }} mph</p>
       </div>
-      <div class="col-md-6">
-        <!-- <img src="" alt=""> -->
-        <div class="jumbotron bg-dark h-100"></div>
+      <div class="col-md-8">
+        <img class="w-100 rounded shadow" src="{{ image }}" alt="{{ image }}">
+        
       </div>
     </div>
   </div>

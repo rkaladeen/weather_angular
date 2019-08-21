@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { ActivatedRoute } from "@angular/router";
 import { HttpService } from '../http.service'
+import { CommsService } from '../comms.service'
 
 @Component({
   selector: 'weather',
@@ -10,13 +11,12 @@ import { HttpService } from '../http.service'
 export class WeatherComponent implements OnInit {
   weatherInfo: any;
   locationName: any;
-  // image: any;
-  constructor(private route: ActivatedRoute, private _httpService: HttpService ) { }
+  image: any;
+  constructor(private route: ActivatedRoute, private _httpService: HttpService, private _commsService: CommsService) { }
 
   ngOnInit() {
     this.getZipCode();
     this.getLocationName();
-    // this.getImage();
   }
 
   getZipCode(): void {
@@ -24,7 +24,10 @@ export class WeatherComponent implements OnInit {
       let weatherData = this._httpService.getWeather(zip.zip);
       weatherData.subscribe(data => {
         this.weatherInfo = data;
+        // console.log(data);
       })
+      let data = this._commsService.getLocationData(zip.zip);
+      this.image = data.img;
     })
   }
 
@@ -34,9 +37,4 @@ export class WeatherComponent implements OnInit {
     })
   }
 
-  // getImage(): void {
-  //   this.route.params.subscribe(img => {
-  //     this.image = img.img;
-  //   })
-  // }
 }
