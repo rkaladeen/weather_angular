@@ -1,27 +1,25 @@
-# DojoWeather
+# DojoWeather 
+## Objectives:
+* Practice using Angular routing to display different components
+* Practice making http requests to an API and displaying the data received
+* Create an app which presents the user with 6 different views (using the router-outlet) each different url/view should present the user with a Dojo city. Within each of these views, present the user with the current weather information. This assignment will require you to retrieve an API key from https://openweathermap.org/api
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.2.1.
+Additionally, show an image of each of the cities, you can use https://www.pexels.com/ for royalty free images.
 
-## Development server
+Use the following URL pattern for each city:
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Default (root) url - 'http://localhost:4200/' should immediately redirect us to your local Dojo url. 
 
-## Code scaffolding
+Seattle, WA - 'http://localhost:4200/seattle'
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+San Jose, CA - 'http://localhost:4200/sanjose'
 
-## Build
+Burbank, CA - 'http://localhost:4200/burbank'
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+Dallas, TX - 'http://localhost:4200/dallas'
 
-## Running unit tests
+Washington D.C. - 'http://localhost:4200/dc'
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Chicago, IL - 'http://localhost:4200/chicago'
 
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+REMINDER: When building applications which include forms and http requests, be sure to import the 'FormsModule' and 'HttpClientModule' in your AppModule file ('HttpClientModule' is referenced in the 'Fetch Data' chapter, 'Service' module).
